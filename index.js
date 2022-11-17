@@ -36,23 +36,42 @@ inquirer
         name: "Testing",
       },
       {
-        type: "checkbox",
+        type: "list",
         name: "license",
         message:"What kind of license should your project have?",
         choices: ["MIT", "Apache 2.0", "GPL 3.0", "BSD 3", "None"],
             },
+            {
+              type:"input",
+              name: "Email",
+              message:"What is your email address?",
+            },
+            {
+              type:"input",
+              name:"Github",
+              message:"what is your github user name?",
+            }
   ])
   .then((response) => {
    // console.log(response,"response");
     const markdown =generateREADME(response);
-    fs.writeFile('README.MD', markdown, (err) =>
+    fs.writeFile('SmapleREADME.MD', markdown, (err) =>
     err ? console.log(err) : console.log('Successfully created README.MD!')
   );
 })};
 
 // TODO: Create an array of questions for user input
-const generateREADME =({Title, Discription, Instulation, Usage, Contribute, Testing,license}) =>
+const generateREADME =({Title, Discription, Instulation, Usage, Contribute, Testing,license, Email, Github}) =>
 `# ${Title} 
+
+## Table of Contents
+1. [Discription](#discription) 
+2. [Instulation](#insulation)
+3. [Usage](#usage)
+4. [Contribute](#contribute)
+5. [Testing](#testing)
+6. [License](#license)
+7. [Questions](#questions)
 
 ## Discription 
 ${Discription}
@@ -69,9 +88,12 @@ ${Contribute}
 ## Testing
 ${Testing}
 
-## License
+## License ![license](https://img.shields.io/badge/license-${license}-red)
 ${license}
 
+## Questions
+[Github](https://www.github.com/${Github})
+[Email](${Email})
 `
 
 // TODO: Create a function to write README file
