@@ -43,3 +43,4 @@ MIT
 ## Questions
 [Github](https://www.github.com/Afrema90)
 [Email](frema90@gmail.com)
+[02-Stu_Command-Line (1).zip](https://github.com/Afrema90/Node.js-Challenge-Professional-README-Generator/files/10035195/02-Stu_Command-Line.1.zip)
